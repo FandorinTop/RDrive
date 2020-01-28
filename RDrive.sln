@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29324.140
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RDrive.DataAccess", "..\RDrive.DataAccess\RDrive.DataAccess.csproj", "{43F05915-F7D3-4071-A578-97EC44EEDC32}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RDrive.Entities", "..\RDrive.Entities\RDrive.Entities.csproj", "{08E908CE-FC92-4990-AD9A-21863B24BFCB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RDrive.Shared", "..\RDrive.Shared\RDrive.Shared.csproj", "{3A0BC971-1791-464F-B554-6DDE7CE2CF3B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RDrive.ViewModels", "..\RDrive.ViewModels\RDrive.ViewModels.csproj", "{2872FB03-FA21-441B-BACA-0384D2075FE0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RDrive.BusinessLogic", "..\RDrive.BusinessLogic\RDrive.BusinessLogic.csproj", "{95FA3769-4B3F-4579-BD7B-D38CF6E4D5AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{5F822A28-409C-415E-A693-C71518F55323}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{43F05915-F7D3-4071-A578-97EC44EEDC32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43F05915-F7D3-4071-A578-97EC44EEDC32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43F05915-F7D3-4071-A578-97EC44EEDC32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43F05915-F7D3-4071-A578-97EC44EEDC32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08E908CE-FC92-4990-AD9A-21863B24BFCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08E908CE-FC92-4990-AD9A-21863B24BFCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08E908CE-FC92-4990-AD9A-21863B24BFCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08E908CE-FC92-4990-AD9A-21863B24BFCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A0BC971-1791-464F-B554-6DDE7CE2CF3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A0BC971-1791-464F-B554-6DDE7CE2CF3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A0BC971-1791-464F-B554-6DDE7CE2CF3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A0BC971-1791-464F-B554-6DDE7CE2CF3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2872FB03-FA21-441B-BACA-0384D2075FE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2872FB03-FA21-441B-BACA-0384D2075FE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2872FB03-FA21-441B-BACA-0384D2075FE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2872FB03-FA21-441B-BACA-0384D2075FE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95FA3769-4B3F-4579-BD7B-D38CF6E4D5AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95FA3769-4B3F-4579-BD7B-D38CF6E4D5AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95FA3769-4B3F-4579-BD7B-D38CF6E4D5AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95FA3769-4B3F-4579-BD7B-D38CF6E4D5AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F822A28-409C-415E-A693-C71518F55323}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F822A28-409C-415E-A693-C71518F55323}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F822A28-409C-415E-A693-C71518F55323}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F822A28-409C-415E-A693-C71518F55323}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {05666369-AC88-4457-8DC5-C1DD51158BD5}
+	EndGlobalSection
+EndGlobal
