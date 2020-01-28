@@ -11,11 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\RDrive.BusinessLogic\RDrive.BusinessLogic.csproj" />
-    <ProjectReference Include="..\..\RDrive.ViewModels\RDrive.ViewModels.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="NewFolder\" />
   </ItemGroup>
 

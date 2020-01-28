@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Enum\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RDrive.DataAccess\RDrive.DataAccess.csproj" />
+    <ProjectReference Include="..\RDrive.Shared\RDrive.Shared.csproj" />
+    <ProjectReference Include="..\RDrive.ViewModels\RDrive.ViewModels.csproj" />
+  </ItemGroup>
+
+
+</Project>
