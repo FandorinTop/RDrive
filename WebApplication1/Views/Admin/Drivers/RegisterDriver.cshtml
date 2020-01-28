@@ -1,0 +1,106 @@
+﻿@using RDrive.ViewModels.AdminViewModels.DriverViewModel
+@model CreateNewDriverAdminView
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Register New Driver";
+}
+<environment include="Development">
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+</environment>
+<environment exclude="Development">
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.17.0/jquery.validate.min.js"
+            asp-fallback-src="~/lib/jquery-validation/dist/jquery.validate.min.js"
+            asp-fallback-test="window.jQuery && window.jQuery.validator"
+            crossorigin="anonymous"
+            integrity="sha384-rZfj/ogBloos6wzLGpPkkOr/gpkBNLZ6b6yLy4o+ok+t/SAKlL5mvXLr0OXNi1Hp">
+    </script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.9/jquery.validate.unobtrusive.min.js"
+            asp-fallback-src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+            asp-fallback-test="window.jQuery && window.jQuery.validator && window.jQuery.validator.unobtrusive"
+            crossorigin="anonymous"
+            integrity="sha384-ifv0TYDWxBHzvAk2Z0n8R434FL1Rlv/Av18DXE43N/1rvHyOG4izKst0f2iSLdds">
+    </script>
+</environment>
+<link href="~/lib/kendo/kendo.common-material.css" rel="stylesheet" />
+<link href="~/lib/kendo/kendo.material.css" rel="stylesheet" />
+<link href="~/lib/kendo/kendo.material.mobile.css" rel="stylesheet" />
+
+<section class="panel important">
+    <div class="panel-navbar">
+        <h2 class="panel-navbar-title">Register Driver</h2>
+    </div>
+</section>
+
+<form asp-action="RegisterDriver" class="form">
+    <section class="panel important">
+        <h3 class="section-title">Personal information</h3>
+        <div class="section-form">
+            <div class="form-group">
+                <label for="" class="form__field__label">FirstName <span>*</span></label>
+                <input type="text" name="firstName" class="form__field">
+
+            </div>
+            <div class="form-group">
+                <label for="" class="form__field__label">LastName <span>*</span></label>
+                <input type="text" name="lastName" class="form__field">
+            </div>
+            <div class="form-group">
+                <label for="" class="form__field__label">MiddleName</label>
+                <input type="text" name="middleName" class="form__field">
+            </div>
+            <div class="form-group">
+                <label for="" class="form__field__label">Personal Phone Number <span>*</span></label>
+                <input type="text" name="phoneNumber" class="form__field">
+            </div>
+        </div>
+    </section>
+
+    <section class="panel important">
+        <h3 class="section-title">Account information</h3>
+        <div class="section-form">
+
+            <div class="form-group">
+                <label for="" class="form__field__label">Username <span>*</span></label>
+                <input type="text" class="form__field" name="username">
+            </div>
+            <div class="form-group">
+                <label for="" class="form__field__label">Email <span>*</span></label>
+                <input type="text" class="form__field" name="email">
+            </div>
+            <div class="form-group">
+                <label for="" class="form__field__label">Password <span>*</span></label>
+                <input type="password" class="form__field" name="password">
+            </div>
+            <div class="form-group">
+                <label for="" class="form__field__label">Confirm Password <span>*</span></label>
+                <input type="password" class="form__field" name="confirmPassword">
+            </div>
+            <div class="form-group">
+                <label for="" class="form__field__label">IsVerified<span>*</span></label>
+                <select class="form__field" name="IsVerified">
+                    <option value="False">False</option>
+                    <option value="True">True</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <section class="panel important">
+        <h3 class="section-title">Living information</h3>
+        <div class="section-form">
+            <div class="form-group">
+                <label for="" class="form__field__label">Address <span>*</span></label>
+                <input type="text" class="form__field" name="addressLine">
+            </div>
+        </div>
+    </section>
+
+    <section class="panel important">
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+
+        <a asp-action="ShowDrivers" class="btn btn--main-outline">Go Back</a>
+        <button type="submit" class="btn btn--main">Register Drivers</button>
+
+    </section>
+</form>

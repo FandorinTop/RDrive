@@ -1,35 +1,39 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using RDrive.BusinessLogic.Fabrics.Interface;
+using RDrive.BusinessLogic.Services.Interfaces;
+using RDrive.Shared.Constants;
+using RDrive.Shared.Exceptions.BaseExceptions;
+using RDrive.ViewModels.AdminViewModels.DriverViewModel;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using WebApplication1.Models;
+using Base = WebApplication1.Controllers.BaseController.BaseController;
 
 namespace WebApplication1.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : Base
     {
+        #region Constructors
+        public HomeController(IMenuItemsFabric menuItemsFabric) : base(menuItemsFabric)
+        {
+        }
+        #endregion
+
         public IActionResult Index()
         {
-            return View();
+            if (UserRoles.Contains("Admin"))
+            {
+                return RedirectToAction("Index", "Admin");
+            }
+
+            return View("Login");
         }
 
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult Privacy()
+        public IActionResult Landing()
         {
             return View();
         }

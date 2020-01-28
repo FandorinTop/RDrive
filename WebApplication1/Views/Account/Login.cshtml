@@ -1,23 +1,25 @@
-﻿@model RDrive.ViewModels.AccountViewModels.LoginAccountAccountView;
+﻿@model string 
 
 @{
-    Layout = "_AccountLayout";
     ViewData["Title"] = "Login";
 }
 
-<div class="container-login go-register">
-    <div class="form__container form__container-login">
-        <form asp-action="Login" class="form">
-            <input value="@Model" class="d-none" name="ReturnUrl" />
-            <h3 class="form__heading">Sign In</h3>
-            <input type="email" name="email" placeholder="email" class="form__field">
-            <input type="password" name="password" placeholder="password" class="form__field">
-            <a asp-action="ForgetPassword" class="form__text d-block">Forgot password?</a>
 
-            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+<div class="form__container form__container-login">
+    <form asp-action="Login" class="form">
+        <h3 class="form__heading">Sign In</h3>
+        <div>
+            <input type="email" name="email" placeholder="email" class="form__field">
+        </div>
+        <div>
+            <input type="password"  name="password" placeholder="password" class="form__field">
+        </div>
+        @*<div>
+            <a asp-action="ForgetPassword" class="form__text d-block">Forgot password?</a>
+        </div>*@
 
             <button type="submit" class="btn btn--main">Sign In</button>
-        </form>
-    </div>
-    </div>
+    </form>
+</div>
+
 

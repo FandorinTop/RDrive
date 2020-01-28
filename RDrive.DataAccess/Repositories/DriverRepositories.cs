@@ -17,16 +17,16 @@ namespace RDrive.DataAccess.Repositories
 
         public async Task<List<Driver>> GetAllDrivers()
         {
-            List<Driver> teachers = await _context.Drivers.ToListAsync();
-            return teachers;
+            List<Driver> drivers = await _context.Drivers.ToListAsync();
+            return drivers;
 
        }
         public async Task<Driver> GetDriverByName(string name)
         {
-            Driver teacher = await _context.Drivers
+            Driver driver = await _context.Drivers
                 .FirstOrDefaultAsync(item => item.UserName.ToUpper().Equals(name.ToUpper()));
 
-            return teacher;
+            return driver;
         }
     }
 }

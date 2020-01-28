@@ -1,0 +1,38 @@
+﻿@using RDrive.ViewModels.AdminViewModels.DriverViewModel
+@model ShowDriversAdminView
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Driver";
+}
+
+<link href="~/lib/kendo/kendo.common-material.css" rel="stylesheet" />
+<link href="~/lib/kendo/kendo.material.css" rel="stylesheet" />
+<link href="~/lib/kendo/kendo.material.mobile.css" rel="stylesheet" />
+
+<section class="panel important">
+    <div class="panel-navbar">
+        <h2 class="panel-navbar-title">Drivers</h2>
+        <a asp-action="RegisterDriver" class="btn btn--main-outline">Create driver</a>
+    </div>
+</section>
+<table class="table">
+    <tr><th>Email</th><th>FullName</th><th>Registration time</th></tr>
+    @foreach (var user in Model.Drivers)
+    {
+<tr>
+    <td>@user.Email </td>
+    <td>@user.FullName</td>
+    <td>@user.CreationDate</td>
+    <td>
+        <form asp-action="DeleteDriver" asp-route-id="@user.Id" method="post">
+            <a class="btn btn-sm btn-primary" asp-action="EditDriver" asp-route-id="@user.Id">Edit</a>
+            <button type="submit" class="btn btn-sm btn-danger">
+                Удалить
+            </button>
+        </form>
+    </td>
+  
+</tr>
+    }
+</table>
+

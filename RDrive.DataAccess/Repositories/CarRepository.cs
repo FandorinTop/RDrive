@@ -17,8 +17,8 @@ namespace RDrive.DataAccess.Repositories
 
         public async Task<Car> FindCarByNumber(string number)
         {
-            Car cathedra = await _context.Cars.FirstOrDefaultAsync(f => f.Number.Equals(number));
-            return cathedra;
+            Car car = await _context.Cars.FirstOrDefaultAsync(f => f.Number.Equals(number));
+            return car;
         }
     }
 }

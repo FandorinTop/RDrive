@@ -1,20 +1,46 @@
-﻿
+﻿@model RDrive.ViewModels.AccountViewModels.RegisterNewUserAccountView
 @{
     ViewData["Title"] = "Register";
 }
 
 <h2>Register</h2>
 <div class="form__container form__container-register">
-    <form asp-action="RegisterNewAccount" class="form">
-        <input value="@Model" class="d-none" name="ReturnUrl" />
-        <h3 class="form__heading">Create Account</h3>
-        <input type="text" name="username" placeholder="username" class="form__field">
-        <input type="email" name="email" placeholder="email" class="form__field">
-        <input type="password" name="password" placeholder="password" class="form__field">
-        <input type="password" name="confirmPassword" placeholder="confirm password" class="form__field">
+    <form asp-action="Register" class="form">
+        <div>
+            <label asp-for="Email"></label><br />
+            <input type="email" asp-for="Email" />
+            <span asp-validation-for="Email"></span>
+
+        </div>
+        <div>
+            <label asp-for="Username"></label><br />
+            <input type="text" asp-for="Username" />
+            <span asp-validation-for="Username"></span>
+        </div>
+        <div>
+            <label asp-for="Type"></label><br />
+            <select asp-for="Type">
+                <option value="Client">Client</option>
+                <option value="Driver">Driver</option>
+            </select>
+        </div>
+        <div>
+            <label asp-for="Password"></label><br />
+            <input type="password" input asp-for="Password" />
+            <span asp-validation-for="Password"></span>
+
+        </div>
+        <div>
+            <label asp-for="ConfirmPassword"></label><br />
+            <input type="password" asp-for="ConfirmPassword" />
+            <span asp-validation-for="ConfirmPassword"></span>
+
+        </div>
+        <div>
+            <input type="submit" value="Register" />
+        </div>
 
         <div class="text-danger" id="registerErrorMessage" asp-validation-summary="ModelOnly"></div>
 
-        <button type="submit" class="btn btn--main">Sign Up</button>
     </form>
 </div>

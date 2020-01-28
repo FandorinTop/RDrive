@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using RDrive.BusinessLogic.Services.Interfaces;
+using RDrive.Shared.Constants;
 using RDrive.Shared.Exceptions.BusinessLogicExceptions;
 using RDrive.ViewModels.AccountViewModels;
 using System;
@@ -25,29 +26,33 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public async Task<IActionResult> Login([FromForm]LoginAccountAccountView loginAccountAccountView)
         {
-            try
-            {
-                await _accountService.SignIn(loginAccountAccountView);
-
-                if (string.IsNullOrWhiteSpace(loginAccountAccountView.ReturnUrl))
+           
+                try
                 {
-                    return Redirect("~/");
-                }
+                    await _accountService.SignIn(loginAccountAccountView);
 
-                return Redirect($"~{loginAccountAccountView.ReturnUrl}");
-            }
-            catch (AccountException ex)
-            {
-                ModelState.AddModelError(string.Empty, ex.Message);
-                return View();
-            }
+                    if (string.IsNullOrWhiteSpace(loginAccountAccountView.ReturnUrl))
+                    {
+                        return Redirect("~/");
+                    }
+
+                    return Redirect($"~{loginAccountAccountView.ReturnUrl}");
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError(string.Empty, ex.Message);
+                    return View();
+                }
+            
         }
+
 
         [HttpGet]
         public IActionResult Login(string returnUrl)
         {
             return View(returnUrl as object);
         }
+        [HttpGet]
         public IActionResult Register(string returnUrl)
         {
             return View(returnUrl as object);
@@ -69,7 +74,7 @@ namespace WebApplication1.Controllers
                 await _accountService.ForgetPassword(forgetPasswordView);
                 return RedirectToAction("LogIn", "Account");
             }
-            catch (AccountException ex)
+            catch (Exception ex)
             {
                 ModelState.AddModelError(string.Empty, ex.Message);
                 return View();
@@ -88,7 +93,7 @@ namespace WebApplication1.Controllers
             try
             {
                 await _accountService.ResetPassword(viewModel);
-                return RedirectToAction("LogIn", "Account");
+                return RedirectToAction("Login", "Account");
             }
             catch (AccountException ex)
             {
@@ -98,20 +103,29 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> RegisterNewAccount([FromForm]RegisterNewUserAccountView registerNewUserView)
+        public async Task<IActionResult> Register([FromForm]RegisterNewUserAccountView registerNewUserView)
         {
-            try
+            if (ModelState.IsValid)
             {
-                var url = new Uri($"{Request.Scheme}://{Request.Host}");
-                registerNewUserView.CurrentUrl = url;
-                await _accountService.RegisterNewUser(registerNewUserView);
-                return RedirectToAction("LogIn", "Account");
+                try
+                {
+                    var url = new Uri($"{Request.Scheme}://{Request.Host}");
+                    registerNewUserView.CurrentUrl = url;
+                    if (registerNewUserView.Type.ToString() == AppConstants.CLIENT_ROLE)
+                        await _accountService.RegisterNewUser(registerNewUserView);
+                    else if (registerNewUserView.Type.ToString() == AppConstants.DRIVER_ROLE)
+                        await _accountService.RegisterNewDriver(registerNewUserView);
+                    else throw new AccountException("Cant register this type");
+
+                    return RedirectToAction("LogIn", "Account");
+                }
+                catch (AccountException ex)
+                {
+                    ModelState.AddModelError(string.Empty, ex.Message);
+                    return View("Register");
+                }
             }
-            catch (AccountException ex)
-            {
-                ModelState.AddModelError(string.Empty, ex.Message);
-                return View();
-            }
+            return View("Register");
         }
 
         [HttpPost]
@@ -125,7 +139,9 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public async Task<IActionResult> LogOut()
         {
+            
             await _accountService.SignOut();
+            //return Redirect("~/");
             return RedirectToAction("LogIn", "Account");
         }
         #endregion
